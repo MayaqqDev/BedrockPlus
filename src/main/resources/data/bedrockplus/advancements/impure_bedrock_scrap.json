@@ -3,8 +3,8 @@
     "icon": {
       "id": "bedrockplus:impure_bedrock_scrap"
     },
-    "title": "Get a bedrock impure scrap",
-    "description": "Smelt a impure bedrock",
+    "title": {"translate": "advancements.bedrockplus.scrap.title"},
+    "description": {"translate": "advancements.bedrockplus.scrap.descr"},
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true

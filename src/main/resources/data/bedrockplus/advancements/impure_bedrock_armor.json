@@ -3,8 +3,8 @@
     "icon": {
       "id": "bedrockplus:impurebedrock_helmet"
     },
-    "title": "You feel powerful",
-    "description": "Wear a impure bedrock armor",
+    "title": {"translate": "advancements.bedrockplus.armor.title"},
+    "description": {"translate": "advancements.bedrockplus.armor.descr"},
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true

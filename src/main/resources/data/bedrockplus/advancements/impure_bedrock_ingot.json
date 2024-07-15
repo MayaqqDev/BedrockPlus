@@ -3,8 +3,8 @@
     "icon": {
       "id": "bedrockplus:impure_bedrock_ingot"
     },
-    "title": "A very hard mineral",
-    "description": "Craft a bedrock impure ingot",
+    "title": {"translate": "advancements.bedrockplus.ingot.title"},
+    "description": {"translate": "advancements.bedrockplus.ingot.descr"},
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
