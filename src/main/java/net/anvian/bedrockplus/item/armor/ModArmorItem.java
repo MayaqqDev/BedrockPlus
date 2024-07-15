@@ -2,6 +2,7 @@ package net.anvian.bedrockplus.item.armor;
 
 import com.google.common.collect.ImmutableMap;
 import net.anvian.bedrockplus.config.ModConfigs;
+import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
@@ -15,35 +16,34 @@ import java.util.Map;
 public class ModArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
-                    .put(ModArmorMaterials.IMPUREBEDROCK,
-                            new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 0, false, ModConfigs.ArmorShowParticle.get(), ModConfigs.ArmorShowIcon.get())).build();
+                    .put(ModArmorMaterials.IMPUREBEDROCK.get(),
+                            new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 0, false, ModConfigs.armorShowParticle, ModConfigs.armorShowIcon)).build();
 
-    public ModArmorItem(ArmorMaterial p_40386_, Type p_266831_, Properties p_40388_) {
-        super(p_40386_, p_266831_, p_40388_);
+    public ModArmorItem(Holder<ArmorMaterial> p_329451_, Type p_266831_, Properties p_40388_) {
+        super(p_329451_, p_266831_, p_40388_);
     }
 
-
     @Override
-    public void onArmorTick(ItemStack stack, Level world, Player player) {
-        if(!world.isClientSide()) {
+    public void onInventoryTick(ItemStack stack, Level level, Player player, int slotIndex, int selectedIndex) {
+        if(!level.isClientSide()) {
             if(hasFullSuitOfArmorOn(player)) {
-                evaluateArmorEffects(world, player);
+                evaluateArmorEffects(player);
             }
         }
     }
 
-    private void evaluateArmorEffects(Level level, Player player) {
+    private void evaluateArmorEffects(Player player) {
         for (Map.Entry<ArmorMaterial, MobEffectInstance> entry : MATERIAL_TO_EFFECT_MAP.entrySet()) {
             ArmorMaterial mapArmorMaterial = entry.getKey();
             MobEffectInstance mapStatusEffect = entry.getValue();
 
             if(hasCorrectArmorOn(mapArmorMaterial, player)) {
-                addStatusEffectForMaterial(level, player, mapArmorMaterial, mapStatusEffect);
+                addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
             }
         }
     }
 
-    private void addStatusEffectForMaterial(Level level, Player player, ArmorMaterial mapArmorMaterial,
+    private void addStatusEffectForMaterial(Player player, ArmorMaterial mapArmorMaterial,
                                             MobEffectInstance mapStatusEffect) {
         boolean hasPlayerEffect = player.hasEffect(mapStatusEffect.getEffect());
 
@@ -72,6 +72,6 @@ public class ModArmorItem extends ArmorItem {
                 isArmorMaterial(leggings,material) && isArmorMaterial(boots,material);
     }
     private boolean isArmorMaterial(ItemStack stack, ArmorMaterial material) {
-        return (stack.getItem() instanceof ArmorItem) && ((ArmorItem)stack.getItem()).getMaterial() == material;
+        return (stack.getItem() instanceof ArmorItem) && ((ArmorItem) stack.getItem()).getMaterial().get() == material;
     }
 }

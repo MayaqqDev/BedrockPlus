@@ -1,27 +1,30 @@
-modLoader="javafml"
-loaderVersion="[48,)"
-license="GPL-3.0"
+modLoader = "javafml"
+loaderVersion = "${loader_version_range}"
+license = "${mod_license}"
 issueTrackerURL="https://github.com/anviaan/SimpleMango/issues"
+clientSideOnly=false
+
 [[mods]]
-modId="bedrockplus"
-version="1.6"
-displayName="Bedrock Plus Mod"
-updateJSONURL="https://anvian-page.netlify.app/forge/bedrockPlus.json"
+modId = "${mod_id}"
+version = "${mod_version}"
+displayName = "${mod_name}"
+updateJSONURL="https://api.modrinth.com/updates/pdjxnvXe/forge_updates.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/bedrock-pus"
-authors="anvian"
+logoFile="${mod_id}.png"
 credits="PinhaColada2222"
-description="Adds a new variant of bedrock, which can be combined with netherite armor."
+authors = "${mod_authors}"
+description = '''${mod_description}'''
 displayTest="MATCH_VERSION"
 
-[[dependencies.bedrockplus]]
-    modId="forge"
-    mandatory=true
-    versionRange="[48,)"
-    ordering="NONE"
-    side="BOTH"
-[[dependencies.bedrockplus]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.20,1.21)"
-    ordering="NONE"
-    side="BOTH"
+[[dependencies.${ mod_id }]]
+modId = "forge"
+mandatory = true
+versionRange = "${forge_version_range}"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.${ mod_id }]]
+modId = "minecraft"
+mandatory = true
+versionRange = "${minecraft_version_range}"
+ordering = "NONE"
+side = "BOTH"

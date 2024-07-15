@@ -1,62 +1,35 @@
 package net.anvian.bedrockplus.item.armor;
 
 import net.anvian.bedrockplus.BedrockPlusMod;
-import net.anvian.bedrockplus.config.ModConfigs;
 import net.anvian.bedrockplus.item.ModItems;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorItem.Type;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 
-public class ModArmorMaterials implements ArmorMaterial {
+import java.util.EnumMap;
+import java.util.List;
+import java.util.function.Supplier;
 
-    public static final ModArmorMaterials IMPUREBEDROCK = new ModArmorMaterials();
+public class ModArmorMaterials {
+    public static final Holder<ArmorMaterial> IMPUREBEDROCK;
 
-    private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};
-    private final SoundEvent equipSound = SoundEvents.ARMOR_EQUIP_NETHERITE;
-    private final int durabilityMultiplier = ModConfigs.ArmorDurabilityMultiplier.get();
-    private final int[] protectionAmounts = {
-            ModConfigs.ArmorProtectionAmountsBoots.get(),
-            ModConfigs.ArmorProtectionAmountsLeggings.get(),
-            ModConfigs.ArmorProtectionAmountsChestplate.get(),
-            ModConfigs.ArmorProtectionAmountsHelmet.get()
-    };
-    private final int enchantability = ModConfigs.ArmorEnchantability.get();
-    private final float toughness = ModConfigs.ArmorToughness.get().floatValue();
-    private final float knockbackResistance = ModConfigs.ArmorKnockbackResistance.get().floatValue();
-
-    @Override
-    public int getDurabilityForType(ArmorItem.Type type) {
-        return BASE_DURABILITY[type.getSlot().getIndex()] * this.durabilityMultiplier;
+    static {
+        IMPUREBEDROCK = register("impurebedrock", createMap(new int[]{2, 5, 6, 2, 5}), 9, SoundEvents.ARMOR_EQUIP_NETHERITE, 1f, 0f, () -> Ingredient.of(ModItems.IMPURE_BEDROCK_INGOT.get()));
     }
 
-    @Override
-    public int getDefenseForType(ArmorItem.Type type) {
-        return this.protectionAmounts[type.getSlot().getIndex()];
+    private static EnumMap<Type, Integer> createMap(int[] values) {
+        EnumMap<Type, Integer> enumMap = new EnumMap<>(Type.class);
+        for (int i = 0; i < values.length; i++) enumMap.put(Type.values()[i], values[i]);
+        return enumMap;
     }
 
-    public int getEnchantmentValue() {
-        return this.enchantability;
-    }
-
-    public SoundEvent getEquipSound() {
-        return this.equipSound;
-    }
-
-    public Ingredient getRepairIngredient() {
-        return Ingredient.of(ModItems.IMPURE_BEDROCK_INGOT.get());
-    }
-
-    public String getName() {
-        return BedrockPlusMod.MOD_ID + ":" + "impurebedrock";
-    }
-
-    public float getToughness() {
-        return this.toughness;
-    }
-
-    public float getKnockbackResistance() {
-        return this.knockbackResistance;
+    private static Holder<ArmorMaterial> register(String string, EnumMap<Type, Integer> defense, int i, Holder<SoundEvent> holder, float f, float g, Supplier<Ingredient> supplier) {
+        return Registry.registerForHolder(BuiltInRegistries.ARMOR_MATERIAL, ResourceLocation.tryBuild(BedrockPlusMod.MOD_ID, string), new ArmorMaterial(defense, i, holder, supplier, List.of(new ArmorMaterial.Layer(ResourceLocation.tryBuild(BedrockPlusMod.MOD_ID, string))), f, g));
     }
 }

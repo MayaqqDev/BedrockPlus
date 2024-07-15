@@ -1,14 +1,13 @@
 {
   "display": {
-    "icon": {"item": "bedrockplus:impurebedrock_sword"},
+    "icon": {
+      "id": "bedrockplus:impurebedrock_sword"
+    },
     "title": "Powerful Tools",
     "description": "Craft all the impure bedrock tools",
     "frame": "challenge",
     "show_toast": true,
-    "annouce_to_chat": true
-  },
-  "rewards": {
-    "experience": 150
+    "announce_to_chat": true
   },
   "parent": "bedrockplus:impure_bedrock_ingot",
   "criteria": {
@@ -44,5 +43,8 @@
         ]
       }
     }
+  },
+  "rewards": {
+    "experience": 150
   }
 }

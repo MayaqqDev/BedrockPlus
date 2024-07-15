@@ -11,6 +11,7 @@
     "###"
   ],
   "result": {
-    "item": "bedrockplus:impure_bedrock_block"
+    "id": "bedrockplus:impure_bedrock_block",
+    "count": 1
   }
 }

@@ -7,7 +7,7 @@
     "item": "minecraft:netherite_sword"
   },
   "result": {
-    "item": "bedrockplus:impurebedrock_sword"
+    "id": "bedrockplus:impurebedrock_sword"
   },
   "template": {
     "item": "bedrockplus:impure_bedrock_upgrade_smithing_template"

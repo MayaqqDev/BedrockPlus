@@ -14,7 +14,7 @@
     }
   },
   "result": {
-    "item": "bedrockplus:impure_bedrock_upgrade_smithing_template",
+    "id": "bedrockplus:impure_bedrock_upgrade_smithing_template",
     "count": 1
   }
 }

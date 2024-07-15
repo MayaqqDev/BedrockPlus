@@ -25,8 +25,8 @@ public class BedrockPlusMod {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         //config
-        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ModConfigs.SERVER_CONFIG);
-        ModConfigs.loadConfig(ModConfigs.SERVER_CONFIG, FMLPaths.CONFIGDIR.get().resolve(MOD_ID + "-config.toml"));
+        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ModConfigs.SPEC, MOD_ID + "-config.toml");
+        ModConfigs.loadConfig(ModConfigs.SPEC, FMLPaths.CONFIGDIR.get().resolve(MOD_ID + "-config.toml"));
 
         ModItemGroup.register(eventBus);
 
@@ -43,6 +43,7 @@ public class BedrockPlusMod {
     private void setup(final FMLCommonSetupEvent event) {
         LOGGER.info("Hello from BedrockPlus!");
     }
+
     private void addCreative(BuildCreativeModeTabContentsEvent even){
         if (even.getTab() == ModItemGroup.BEDROCKPLUS.get()){
             even.accept(ModBlocks.IMPURE_BEDROCK);

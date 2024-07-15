@@ -23,16 +23,16 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> IMPURE_BEDROCK = registerBlock("impure_bedrock",
             () -> new Block(BlockBehaviour.Properties
-                    .copy(Blocks.ANCIENT_DEBRIS)
-                    .strength(ModConfigs.BedrockImpureDeepslateHardness.get().floatValue(),
-                            ModConfigs.BedrockImpureDeepslateResistance.get().floatValue())
+                    .ofFullCopy(Blocks.ANCIENT_DEBRIS)
+                    .strength((float) ModConfigs.bedrockImpureDeepslateHardness,
+                            (float) ModConfigs.bedrockImpureDeepslateResistance)
                     .requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> IMPURE_BEDROCK_BLOCK = registerBlock("impure_bedrock_block",
             () -> new Block(BlockBehaviour.Properties
                     .of().mapColor(MapColor.COLOR_BLACK)
-                    .strength(ModConfigs.BlockOfImpureBedrockHardness.get().floatValue(),
-                            ModConfigs.BlockOfImpureBedrockResistance.get().floatValue())
+                    .strength((float) ModConfigs.blockOfImpureBedrockHardness,
+                            (float) ModConfigs.blockOfImpureBedrockResistance)
                     .requiresCorrectToolForDrops().sound(SoundType.NETHERITE_BLOCK)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

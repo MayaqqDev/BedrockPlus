@@ -1,14 +1,13 @@
 {
   "display": {
-    "icon": {"item": "bedrockplus:impurebedrock_helmet"},
+    "icon": {
+      "id": "bedrockplus:impurebedrock_helmet"
+    },
     "title": "You feel powerful",
     "description": "Wear a impure bedrock armor",
     "frame": "challenge",
     "show_toast": true,
-    "annouce_to_chat": true
-  },
-  "rewards": {
-    "experience": 150
+    "announce_to_chat": true
   },
   "parent": "bedrockplus:impure_bedrock_ingot",
   "criteria": {
@@ -39,5 +38,8 @@
         ]
       }
     }
+  },
+  "rewards": {
+    "experience": 150
   }
 }

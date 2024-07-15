@@ -7,7 +7,7 @@
     "item": "minecraft:netherite_shovel"
   },
   "result": {
-    "item": "bedrockplus:impurebedrock_shovel"
+    "id": "bedrockplus:impurebedrock_shovel"
   },
   "template": {
     "item": "bedrockplus:impure_bedrock_upgrade_smithing_template"

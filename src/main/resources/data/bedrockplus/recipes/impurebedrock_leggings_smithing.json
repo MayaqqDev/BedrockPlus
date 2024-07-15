@@ -7,7 +7,7 @@
     "item": "minecraft:netherite_leggings"
   },
   "result": {
-    "item": "bedrockplus:impurebedrock_leggings"
+    "id": "bedrockplus:impurebedrock_leggings"
   },
   "template": {
     "item": "bedrockplus:impure_bedrock_upgrade_smithing_template"
