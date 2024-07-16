@@ -1,6 +1,6 @@
-package net.anvian.bedrockplus.item;
+package net.anvian.bedrockplus.core.item;
 
-import net.anvian.bedrockplus.config.ModConfigs;
+import net.anvian.bedrockplus.core.config.ModConfigs;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
@@ -16,7 +16,7 @@ public enum ModTiers implements Tier {
             (float) ModConfigs.toolMiningSpeed,
             (float) ModConfigs.toolAttackDamage,
             ModConfigs.toolEnchantability,
-            () -> Ingredient.of(ModItems.IMPURE_BEDROCK_INGOT.get())
+            () -> Ingredient.of(ModItems.IMPURE_BEDROCK_INGOT)
     );
 
     private final TagKey<Block> incorrect;

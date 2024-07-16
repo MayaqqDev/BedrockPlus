@@ -1,6 +1,6 @@
-package net.anvian.bedrockplus.item.armor;
+package net.anvian.bedrockplus.core.item.armor;
 
-import net.anvian.bedrockplus.BedrockPlusMod;
+import net.anvian.bedrockplus.Constants;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.network.chat.CommonComponents;
@@ -19,11 +19,11 @@ public class ImpureBedrockSmithingTemplateItem extends Item {
     private static final ChatFormatting DESCRIPTION_FORMAT = ChatFormatting.BLUE;
     private static final Component INGREDIENTS_TITLE = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.ingredients"))).withStyle(TITLE_FORMAT);
     private static final Component APPLIES_TO_TITLE = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation("smithing_template.applies_to"))).withStyle(TITLE_FORMAT);
-    private static final Component IMPURE_BEDROCK_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation(BedrockPlusMod.MOD_ID, "impure_bedrock_upgrade"))).withStyle(TITLE_FORMAT);
-    private static final Component IMPURE_BEDROCK_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(BedrockPlusMod.MOD_ID, "smithing_template.impure_bedrock_upgrade.applies_to"))).withStyle(DESCRIPTION_FORMAT);
-    private static final Component IMPURE_BEDROCK_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(BedrockPlusMod.MOD_ID, "smithing_template.impure_bedrock_upgrade.ingredients"))).withStyle(DESCRIPTION_FORMAT);
-    private static final Component IMPURE_BEDROCK_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(BedrockPlusMod.MOD_ID, "smithing_template.impure_bedrock_upgrade.base_slot_description")));
-    private static final Component IMPURE_BEDROCK_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(BedrockPlusMod.MOD_ID, "smithing_template.impure_bedrock_upgrade.additions_slot_description")));
+    private static final Component IMPURE_BEDROCK_UPGRADE = Component.translatable(Util.makeDescriptionId("upgrade", new ResourceLocation(Constants.MOD_ID, "impure_bedrock_upgrade"))).withStyle(TITLE_FORMAT);
+    private static final Component IMPURE_BEDROCK_UPGRADE_APPLIES_TO = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(Constants.MOD_ID, "smithing_template.impure_bedrock_upgrade.applies_to"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component IMPURE_BEDROCK_UPGRADE_INGREDIENTS = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(Constants.MOD_ID, "smithing_template.impure_bedrock_upgrade.ingredients"))).withStyle(DESCRIPTION_FORMAT);
+    private static final Component IMPURE_BEDROCK_UPGRADE_BASE_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(Constants.MOD_ID, "smithing_template.impure_bedrock_upgrade.base_slot_description")));
+    private static final Component IMPURE_BEDROCK_UPGRADE_ADDITIONS_SLOT_DESCRIPTION = Component.translatable(Util.makeDescriptionId("item", new ResourceLocation(Constants.MOD_ID, "smithing_template.impure_bedrock_upgrade.additions_slot_description")));
 
     private static final ResourceLocation EMPTY_SLOT_HELMET = new ResourceLocation("item/empty_armor_slot_helmet");
     private static final ResourceLocation EMPTY_SLOT_CHESTPLATE = new ResourceLocation("item/empty_armor_slot_chestplate");

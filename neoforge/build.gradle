@@ -44,5 +44,5 @@ repositories {
 
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
-    api "fuzs.forgeconfigapiport:forgeconfigapiport-neoforge:21.0.1"
+    api "fuzs.forgeconfigapiport:forgeconfigapiport-neoforge:20.6.0"
 }

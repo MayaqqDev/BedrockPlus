@@ -1,10 +1,11 @@
-package net.anvian.bedrockplus.item.armor;
+package net.anvian.bedrockplus.core.item.armor;
 
 import com.google.common.collect.ImmutableMap;
-import net.anvian.bedrockplus.config.ModConfigs;
+import net.anvian.bedrockplus.core.config.ModConfigs;
 import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -16,7 +17,7 @@ import java.util.Map;
 public class ModArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, MobEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, MobEffectInstance>())
-                    .put(ModArmorMaterials.IMPUREBEDROCK.get(),
+                    .put(ModArmorMaterials.IMPUREBEDROCK.value(),
                             new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 0, false, ModConfigs.armorShowParticle, ModConfigs.armorShowIcon)).build();
 
     public ModArmorItem(Holder<ArmorMaterial> p_329451_, Type p_266831_, Properties p_40388_) {
@@ -24,10 +25,10 @@ public class ModArmorItem extends ArmorItem {
     }
 
     @Override
-    public void onInventoryTick(ItemStack stack, Level level, Player player, int slotIndex, int selectedIndex) {
+    public void inventoryTick(ItemStack itemStack, Level level, Entity entity, int $$3, boolean $$4) {
         if (!level.isClientSide()) {
-            if (hasFullSuitOfArmorOn(player)) {
-                evaluateArmorEffects(player);
+            if (hasFullSuitOfArmorOn((Player) entity)) {
+                evaluateArmorEffects((Player) entity);
             }
         }
     }
@@ -73,6 +74,6 @@ public class ModArmorItem extends ArmorItem {
     }
 
     private boolean isArmorMaterial(ItemStack stack, ArmorMaterial material) {
-        return (stack.getItem() instanceof ArmorItem) && ((ArmorItem) stack.getItem()).getMaterial().get() == material;
+        return (stack.getItem() instanceof ArmorItem) && ((ArmorItem) stack.getItem()).getMaterial().value() == material;
     }
 }

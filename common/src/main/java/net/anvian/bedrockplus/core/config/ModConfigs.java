@@ -1,6 +1,7 @@
-package net.anvian.bedrockplus.config;
+package net.anvian.bedrockplus.core.config;
 
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
+import com.electronwill.nightconfig.core.io.WritingMode;
 import net.minecraftforge.common.ForgeConfigSpec;
 
 import java.nio.file.Path;
@@ -80,9 +81,9 @@ public class ModConfigs {
     public static boolean armorShowIcon;
 
     public static void loadConfig(ForgeConfigSpec spec, Path path) {
-        final CommentedFileConfig config = CommentedFileConfig.builder(path).sync().autoreload().build();
-        config.load();
-        spec.setConfig(config);
+        final CommentedFileConfig configData = CommentedFileConfig.builder(path).sync().autosave().writingMode(WritingMode.APPEND).build();
+        configData.load();
+        spec.setConfig(configData);
 
         bedrockImpureDeepslateHardness = BedrockImpureDeepslateHardness.get();
         bedrockImpureDeepslateResistance = BedrockImpureDeepslateResistance.get();

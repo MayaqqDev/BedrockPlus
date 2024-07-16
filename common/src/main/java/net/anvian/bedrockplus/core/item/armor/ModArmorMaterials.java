@@ -1,8 +1,8 @@
-package net.anvian.bedrockplus.item.armor;
+package net.anvian.bedrockplus.core.item.armor;
 
-import net.anvian.bedrockplus.BedrockPlusMod;
-import net.anvian.bedrockplus.config.ModConfigs;
-import net.anvian.bedrockplus.item.ModItems;
+import net.anvian.bedrockplus.Constants;
+import net.anvian.bedrockplus.core.config.ModConfigs;
+import net.anvian.bedrockplus.core.item.ModItems;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -32,7 +32,7 @@ public class ModArmorMaterials {
                 ModConfigs.armorEnchantability,
                 SoundEvents.ARMOR_EQUIP_NETHERITE,
                 (float) ModConfigs.armorToughness, (float) ModConfigs.armorKnockbackResistance,
-                () -> Ingredient.of(ModItems.IMPURE_BEDROCK_INGOT.get()));
+                () -> Ingredient.of(ModItems.IMPURE_BEDROCK_INGOT));
     }
 
     private static EnumMap<Type, Integer> createMap(int[] values) {
@@ -42,6 +42,6 @@ public class ModArmorMaterials {
     }
 
     private static Holder<ArmorMaterial> register(String string, EnumMap<Type, Integer> defense, int i, Holder<SoundEvent> holder, float f, float g, Supplier<Ingredient> supplier) {
-        return Registry.registerForHolder(BuiltInRegistries.ARMOR_MATERIAL, ResourceLocation.tryBuild(BedrockPlusMod.MOD_ID, string), new ArmorMaterial(defense, i, holder, supplier, List.of(new ArmorMaterial.Layer(ResourceLocation.tryBuild(BedrockPlusMod.MOD_ID, string))), f, g));
+        return Registry.registerForHolder(BuiltInRegistries.ARMOR_MATERIAL, ResourceLocation.tryBuild(Constants.MOD_ID, string), new ArmorMaterial(defense, i, holder, supplier, List.of(new ArmorMaterial.Layer(ResourceLocation.tryBuild(Constants.MOD_ID, string))), f, g));
     }
 }
