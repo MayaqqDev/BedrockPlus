@@ -1,6 +1,7 @@
 package net.anvian.bedrockplus.item.armor;
 
 import net.anvian.bedrockplus.BedrockPlusMod;
+import net.anvian.bedrockplus.config.ModConfigs;
 import net.anvian.bedrockplus.item.ModItems;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -20,7 +21,18 @@ public class ModArmorMaterials {
     public static final Holder<ArmorMaterial> IMPUREBEDROCK;
 
     static {
-        IMPUREBEDROCK = register("impurebedrock", createMap(new int[]{2, 5, 6, 2, 5}), 9, SoundEvents.ARMOR_EQUIP_NETHERITE, 1f, 0f, () -> Ingredient.of(ModItems.IMPURE_BEDROCK_INGOT.get()));
+        IMPUREBEDROCK = register("impurebedrock", createMap(
+                        new int[]{
+                                ModConfigs.armorProtectionAmountsHelmet,
+                                ModConfigs.armorProtectionAmountsChestplate,
+                                ModConfigs.armorProtectionAmountsLeggings,
+                                ModConfigs.armorProtectionAmountsBoots,
+                                ModConfigs.armorProtectionAmountsBody
+                        }),
+                ModConfigs.armorEnchantability,
+                SoundEvents.ARMOR_EQUIP_NETHERITE,
+                (float) ModConfigs.armorToughness, (float) ModConfigs.armorKnockbackResistance,
+                () -> Ingredient.of(ModItems.IMPURE_BEDROCK_INGOT.get()));
     }
 
     private static EnumMap<Type, Integer> createMap(int[] values) {

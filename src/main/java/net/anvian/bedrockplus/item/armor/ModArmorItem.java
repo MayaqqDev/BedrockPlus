@@ -25,8 +25,8 @@ public class ModArmorItem extends ArmorItem {
 
     @Override
     public void onInventoryTick(ItemStack stack, Level level, Player player, int slotIndex, int selectedIndex) {
-        if(!level.isClientSide()) {
-            if(hasFullSuitOfArmorOn(player)) {
+        if (!level.isClientSide()) {
+            if (hasFullSuitOfArmorOn(player)) {
                 evaluateArmorEffects(player);
             }
         }
@@ -37,7 +37,7 @@ public class ModArmorItem extends ArmorItem {
             ArmorMaterial mapArmorMaterial = entry.getKey();
             MobEffectInstance mapStatusEffect = entry.getValue();
 
-            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
+            if (hasCorrectArmorOn(mapArmorMaterial, player)) {
                 addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffect);
             }
         }
@@ -47,7 +47,7 @@ public class ModArmorItem extends ArmorItem {
                                             MobEffectInstance mapStatusEffect) {
         boolean hasPlayerEffect = player.hasEffect(mapStatusEffect.getEffect());
 
-        if(hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
+        if (hasCorrectArmorOn(mapArmorMaterial, player) && !hasPlayerEffect) {
             player.addEffect(new MobEffectInstance(mapStatusEffect));
         }
     }
@@ -66,11 +66,12 @@ public class ModArmorItem extends ArmorItem {
         ItemStack boots = player.getInventory().getArmor(0);
         ItemStack leggings = player.getInventory().getArmor(1);
         ItemStack breastplate = player.getInventory().getArmor(2);
-        ItemStack  helmet = player.getInventory().getArmor(3);
+        ItemStack helmet = player.getInventory().getArmor(3);
 
-        return isArmorMaterial(helmet,material) && isArmorMaterial(breastplate,material) &&
-                isArmorMaterial(leggings,material) && isArmorMaterial(boots,material);
+        return isArmorMaterial(helmet, material) && isArmorMaterial(breastplate, material) &&
+                isArmorMaterial(leggings, material) && isArmorMaterial(boots, material);
     }
+
     private boolean isArmorMaterial(ItemStack stack, ArmorMaterial material) {
         return (stack.getItem() instanceof ArmorItem) && ((ArmorItem) stack.getItem()).getMaterial().get() == material;
     }

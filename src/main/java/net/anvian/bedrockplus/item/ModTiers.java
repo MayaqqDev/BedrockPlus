@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Block;
 
 import java.util.function.Supplier;
 
-public enum ModTiers implements Tier{
+public enum ModTiers implements Tier {
     IMPURE_BEDROCK(
             BlockTags.INCORRECT_FOR_NETHERITE_TOOL,
             ModConfigs.toolDurability,

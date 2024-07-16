@@ -37,10 +37,10 @@ public class ModConfigs {
     private static final ForgeConfigSpec.DoubleValue HoeAttackSpeed = BUILDER.defineInRange("HoeAttackSpeed", 0, -10000.0, 1000.0);
 
     //armor
-    private static final ForgeConfigSpec.IntValue ArmorDurabilityMultiplier = BUILDER.defineInRange("ArmorDurabilityMultiplier", 55, 0, 10000);
     private static final ForgeConfigSpec.IntValue ArmorEnchantability = BUILDER.defineInRange("ArmorEnchantability", 22, 0, 10000);
     private static final ForgeConfigSpec.DoubleValue ArmorToughness = BUILDER.defineInRange("ArmorToughness", 4d, 0, 10000);
     private static final ForgeConfigSpec.DoubleValue ArmorKnockbackResistance = BUILDER.defineInRange("ArmorKnockbackResistance", 0.2, 0, 5.0);
+    private static final ForgeConfigSpec.IntValue ArmorProtectionAmountsBody = BUILDER.defineInRange("ArmorProtectionAmountsBody", 9, 0, 10000);
     private static final ForgeConfigSpec.IntValue ArmorProtectionAmountsHelmet = BUILDER.defineInRange("ArmorProtectionAmountsHelmet", 4, 0, 10000);
     private static final ForgeConfigSpec.IntValue ArmorProtectionAmountsChestplate = BUILDER.defineInRange("ArmorProtectionAmountsChestplate", 9, 0, 10000);
     private static final ForgeConfigSpec.IntValue ArmorProtectionAmountsLeggings = BUILDER.defineInRange("ArmorProtectionAmountsLeggings", 7, 0, 10000);
@@ -68,10 +68,10 @@ public class ModConfigs {
     public static double shovelAttackSpeed;
     public static int hoeAttackDamage;
     public static double hoeAttackSpeed;
-    public static int armorDurabilityMultiplier;
     public static int armorEnchantability;
     public static double armorToughness;
     public static double armorKnockbackResistance;
+    public static int armorProtectionAmountsBody;
     public static int armorProtectionAmountsHelmet;
     public static int armorProtectionAmountsChestplate;
     public static int armorProtectionAmountsLeggings;
@@ -109,10 +109,11 @@ public class ModConfigs {
         hoeAttackDamage = HoeAttackDamage.get();
         hoeAttackSpeed = HoeAttackSpeed.get();
 
-        armorDurabilityMultiplier = ArmorDurabilityMultiplier.get();
         armorEnchantability = ArmorEnchantability.get();
         armorToughness = ArmorToughness.get();
         armorKnockbackResistance = ArmorKnockbackResistance.get();
+
+        armorProtectionAmountsBody = ArmorProtectionAmountsBody.get();
         armorProtectionAmountsHelmet = ArmorProtectionAmountsHelmet.get();
         armorProtectionAmountsChestplate = ArmorProtectionAmountsChestplate.get();
         armorProtectionAmountsLeggings = ArmorProtectionAmountsLeggings.get();

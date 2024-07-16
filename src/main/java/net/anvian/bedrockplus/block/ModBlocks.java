@@ -40,11 +40,13 @@ public class ModBlocks {
         registerBlockItem(name, toReturn);
         return toReturn;
     }
+
     private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
                 new Item.Properties().fireResistant()));
     }
-    public static void register(IEventBus eventBus){
+
+    public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }
 }

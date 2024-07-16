@@ -16,11 +16,11 @@ public class ModItemGroup {
 
     public static RegistryObject<CreativeModeTab> BEDROCKPLUS = CREATIVE_MODE_TAB.register("impure_bedrock", () ->
             CreativeModeTab.builder()
-                    .icon(()-> new ItemStack(ModItems.IMPURE_BEDROCK_INGOT.get()))
+                    .icon(() -> new ItemStack(ModItems.IMPURE_BEDROCK_INGOT.get()))
                     .title(Component.translatable("itemGroup.impure_bedrock"))
                     .build());
 
-    public static void register(IEventBus eventBus){
+    public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TAB.register(eventBus);
     }
 }

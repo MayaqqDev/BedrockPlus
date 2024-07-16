@@ -44,8 +44,8 @@ public class BedrockPlusMod {
         LOGGER.info("Hello from BedrockPlus!");
     }
 
-    private void addCreative(BuildCreativeModeTabContentsEvent even){
-        if (even.getTab() == ModItemGroup.BEDROCKPLUS.get()){
+    private void addCreative(BuildCreativeModeTabContentsEvent even) {
+        if (even.getTab() == ModItemGroup.BEDROCKPLUS.get()) {
             even.accept(ModBlocks.IMPURE_BEDROCK);
             even.accept(ModBlocks.IMPURE_BEDROCK_BLOCK);
             even.accept(ModItems.IMPURE_BEDROCK_INGOT);
